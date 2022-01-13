@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch-Time | Site-E-commerce</title>
+    <!-- appel de Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- appel cdn fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- appel dossier css -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <!-- appel dossier JasaScript -->
+    <script async src="./assets/js/script.js"></script>
+</head>
+
+<body>
+    <header class="container-fluid content-header">
+        <div class="header-wrapper">
+            <a href="#" class="logo"><img src="./assets/img/Watch Time.png"></a>
+            <a href="#" class="logo-mobil"><img class="img-logo" src="./assets/img/logo-site-montre-mobil.png"></a>
+            <div class="navigation item-menu">
+                <a href="#" class="item active">Accueil</a>
+                <a href="#" class="item">Nos montres</a>
+                <a href="#" class="item">Marques</a>
+                <a href="#" class="item">Accessoire</a>
+                <input type="text" class="search" id="Form-input" placeholder="Recherche ">
+                <a class="icon-search"><i class="fas fa-search"></i></a>
+                <a href="#" class="panier">0</a>
+                <!-- <a href="#" class="item"><i class="fas fa-shopping-cart"></i></a>
+                <span class="quantity"></span> -->
+            </div>
+            <!-- menu burger -->
+            <div class="icon-burger">
+                <i class="fa fa-bars burger-custom"></i>
+                <a href="#" class="panier">0</a>
+            </div>
+        </div>
+        <div class="burger">
+            <div class="close">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav class="item-navigation-burger">
+                <input type="text" class="search" id="Form-input" placeholder="Recherche ">
+                <a class="icon-search-burger"><i class="fas fa-search"></i></a>
+                <a href="#" class="item-burger active">Accueil</a>
+                <a href="#" class="item-burger">Nos montres</a>
+                <a href="#" class="item-burger">Marques</a>
+                <a href="#" class="item-burger">Accessoire</a>
+            </nav>
+        </div>
+        <!-- fin menu burger -->
+    </header>
+
+    <main class="site-content">
+        <div class="first-page">
+            <div class="btn-arrow">
+                <div id="prev"><i class="fas fa-arrow-left"></i></div>
+                <div id="next"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="carousel">
+                <img class="carousel-img" src="./assets/img/image_1.jpg">
+                <img class="carousel-img" src="./assets/img/image_2.jpg">
+                <img class="carousel-img" src="./assets/img/image_3.jpg">
+            </div>
+            <div class="title-first-page">
+                <div class="title-principal">
+                    <h1>Gustave & cie</h1>
+                    <p>La simplicité est privilégiée : les aiguilles des minutes et secondes s’éclipsent,</p>
+                    <button class="btn-title">Découvrir</button>
+                </div>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <div class="container-fluid category">
+                <h1 class="category-title">Catalogue</h1>
+                <h2 class="title-superposition">Catalogue</h2>
+
+                <div class="container-fluid grid-catalogue">
+                    <div class="grid-1 item-grid automatic-card">
+                        <div class="info-card">
+                            <h1 class="title-catalogue">Automatique</h1>
+                            <button class="btn-catalogue">Découvrir</button> 
+                        </div>
+                           
+                    </div>
+                    <div class="grid-2 item-grid acier-card">
+                        <div class="info-card">
+                            <h1 class="title-catalogue">Montre acier</h1>
+                            <button class="btn-catalogue">Découvrir</button> 
+                        </div>
+                    </div>
+                    <div class="grid-3 item-grid luxe-card">
+                        <div class="info-card">
+                            <h1 class="title-catalogue">Montre de luxe</h1>
+                            <button class="btn-catalogue">Découvrir</button> 
+                        </div>  
+                    </div>
+    
+                </div>
+            </div>
+            
+            
+        </div>
+
+    </main>
+
+</body>
+
+</html>
