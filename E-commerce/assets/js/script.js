@@ -1,3 +1,5 @@
+
+// Carousel de premier page
 let images = document.querySelectorAll('.carousel-img');
 
 let count = 0;
@@ -57,6 +59,8 @@ window.addEventListener('keydown', function (e) {
         imagesBack();
     }
 })
+// fin function de carousel
+
 
 
 // menu burger

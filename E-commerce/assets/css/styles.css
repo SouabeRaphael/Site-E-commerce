@@ -287,7 +287,7 @@ body {
   color: white;
   line-height: 2rem;
   font-family: "Noticia Text", serif;
-  text-shadow: 2px 2px 5px black;
+  /* text-shadow: 2px 2px 5px black; */
 }
 
 .title-principal h1 {
@@ -355,8 +355,9 @@ body {
 
 .category{
   width: 100%;
-  height: 100vh;
+  height: auto;
   margin-top: 50px;
+  margin-bottom: 100px
 }
 
 .category-title{
@@ -526,5 +527,490 @@ body {
   }
   .grid-catalogue{
     gap: 60px;
+  }
+}
+
+/* --------------------------------------------------------------- */
+/* section watch-popular */
+/* ---------------------------------------------------------------- */
+
+.watch-popular{
+  width: 100%;
+  height: auto;
+}
+
+.separator{
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: (repeat(1, 1fr));
+  grid-template-areas: 'separator-left title separator-right';
+}
+
+.separator-left{
+  grid-area: separator-left;
+  width: 550px;
+  height: 4px;
+  background-color: #274060;
+  margin: auto;
+}
+.title-watch-popular{
+  grid-area: title;
+  font-size: 45px;
+  color: #274060;
+  font-family: "Noticia Text", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.separator-right{
+  grid-area: separator-right;
+  width: 550px;
+  height: 4px;
+  background-color: #274060;
+  margin: auto;
+}
+
+@media (max-width: 1600px) {
+  .separator-left{
+    width: 450px;
+  }
+  .title-watch-popular{
+    font-size: 40px;
+  }
+  .separator-right{
+    width: 450px;
+  }
+}
+@media (max-width: 1450px) {
+  .separator-left{
+    width: 350px;
+  }
+  .title-watch-popular{
+    font-size: 35px;
+  }
+  .separator-right{
+    width: 350px;
+  }
+}
+@media (max-width: 1150px) {
+  .separator-left{
+    width: 250px;
+  }
+  .title-watch-popular{
+    font-size: 30px;
+  }
+  .separator-right{
+    width: 250px;
+  }
+}
+@media (max-width: 900px) {
+  .separator{
+    display: flex;
+    justify-content: center;
+  }
+  .separator-left{
+    display: none;
+  }
+  .title-watch-popular{
+    font-size: 50px;
+    text-align: center;
+    border-bottom: 3px solid #274060;
+  }
+  .separator-right{
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------- */
+
+.section-watch-newport{
+  width: 90%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+}
+
+.text-watch{
+  width: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-newport{
+  font-size: 50px;
+  text-align: center;
+  font-family: "Noticia Text", serif;
+}
+.description-newport{
+  font-size: 20px;
+  margin-top: 40px;
+  font-family: "Noticia Text", serif;
+}
+.description-newport b{
+  font-size: 30px;
+}
+.btn-newport{
+  text-align: center;
+  border-radius: 20px 0px 20px 0px;
+  padding: 8px 35px;
+  font-size: 20px;
+  background-color: transparent;
+  color: #274060;
+  border: 3px solid #274060;
+  margin-top: 30px;
+}
+
+.img-newport{
+ margin: auto;
+}
+
+
+
+@media (max-width: 1600px) {
+  .newport-chrono{
+    width: 700px;
+    height: auto;
+  }
+}
+
+@media (max-width: 1350px) {
+  .section-watch-newport{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .img-newport{
+    margin-top: 50px;
+  }
+  .newport-chrono{
+    width: 100%;
+    height: auto;
+  }
+  .title-newport{
+    font-size: 40px;
+  }
+  .text-watch{
+    width: auto;
+  }
+}
+@media (max-width: 600px) {
+  .title-newport{
+    font-size: 30px;
+
+  }
+  .title-watch-popular{
+    font-size: 35px;
+  }
+}
+
+/* --------------------------------------------------------------- */
+/* section produit site */
+/* ---------------------------------------------------------------- */
+
+
+.section-product{
+  width: 100%;
+  height: auto;
+  margin-bottom: 120px;
+}
+
+.info-display{
+  font-size: 25px;
+  font-family: "Noticia Text", serif;
+  margin-left: 8%;
+  margin-top: 40px;
+
+}
+
+/* ---------------------------------------------- */
+
+.grid-product{
+  width: 90%;
+  margin: auto;
+  margin-top: 60px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 130px;
+  column-gap: 80px;
+}
+
+
+
+.watch-item{
+  width: 400px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-product{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.btn-info{
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 0px 20px 0px;
+  padding: 6px 18px;
+  font-size: 14px;
+  background-color: transparent;
+  color: #9A48D0;
+  border: 3px solid #9A48D0;
+  margin-top: 30px;
+}
+
+.img-watch{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-product{
+  width: 200px;
+  height: 350px;
+}
+
+.separator-product{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.line{
+  width: 195%;
+  height: 3px;
+  background-color: #274060;
+}
+
+.info-product{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-product{
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+.price{
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.basket{
+  font-size: 18px;
+  margin-top: 10px;
+  border: none;
+  background: none;
+  color: #274060;
+}
+.arrow-btn{
+  margin-left: 12px;
+}
+
+
+
+/* ---------------------------------------------------------------------- */
+/* Footer */
+/* ----------------------------------------------------------------------- */
+
+.footer-wrapper{
+  height: auto;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #274060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-footer{
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Noticia Text", serif;
+}
+
+.info-company{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-footer{
+  width: 250px;
+  height: 250px;
+}
+
+.text-info{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.service, .contact{
+  color: white;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  flex-direction: column;
+  text-align: start;
+}
+
+.service{
+  transform: translateY(-23px);
+}
+
+.service ul, .contact ul{
+  list-style-type: none;
+  padding: 0;
+  text-align: start;
+}
+
+.title-item-footer{
+  width: 100px;
+  font-size: 35px;
+  border-bottom: 2px solid white;
+  white-space: nowrap;
+}
+
+.liste-info li{
+  font-size: 20px;
+  text-decoration: underline;
+  line-height: 3rem;
+  color: white;
+}
+.liste-info a{
+  color: white;
+}
+
+.icon-footer{
+  margin-right: 10px;
+}
+
+.locat-item-liste{
+  display: flex;
+  align-items: center;
+}
+
+.span-city{
+  padding-left: 23px;
+}
+
+.liste-info .fab{
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.mention{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.mention-legal, .cgv{
+  color: white;
+}
+
+
+@media (max-width: 1600px) {
+  .liste-info li{
+    font-size: 18px;
+    line-height: 2rem;
+  }
+  .service{
+    transform: translateY(-10px);
+    margin-left: 20px;
+  }
+  .map-footer{
+    width: 400px;
+    height: 300px;
+  }
+  .title-item-footer{
+    font-size: 25px;
+  }
+  .logo-footer{
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .logo-footer{
+    display: none;
+  }
+  .map-footer{
+    width: 300px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  .map-footer{
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-company{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .logo-footer{
+    display: block;
+    margin-bottom: 50px;
+  }
+  .service ul, .contact ul{
+    text-align: center;
+  }
+  .title-item-footer{
+    width: auto;
+    text-align: center;
+    border: none;
+    font-size: 30px;
+  }
+  .service{
+    margin-bottom: 30px;
+  }
+  .icon-footer{
+    margin-top: 20px;
+  }
+  .mention{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 2rem;
   }
 }
