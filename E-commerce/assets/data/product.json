@@ -1,0 +1,106 @@
+{
+    "results":[
+        {
+            "btn_label": "Meilleur vente",
+            "img_watch": "./assets/img/watch-1.png",
+            "title_product": "NEWPORT AUTOMATIC",
+            "price": "1,950.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"violet",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Nouveautés",
+            "img_watch": "./assets/img/watch-2.png",
+            "title_product": "BASTILLE-FREGATE",
+            "price": "195.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"orange",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Nouveautés",
+            "img_watch": "./assets/img/watch-3.png",
+            "title_product": "NEWPORT AUTOMATIC",
+            "price": "990.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"orange",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Réduction",
+            "img_watch": "./assets/img/watch-4.png",
+            "title_product": "BASTILLE B4",
+            "price": "120.00€",
+            "reduc_price": "195.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"vert"
+        },
+        {
+            "btn_label": "Réduction",
+            "img_watch": "./assets/img/watch-5.png",
+            "title_product": "NEWPORT AUTOMATIC",
+            "price": "990.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"none",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Meilleur vente",
+            "img_watch": "./assets/img/watch-6.png",
+            "title_product": "ARCEAU HERMES",
+            "price": "2,550.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"violet",
+            "reduct_None": "d-none"
+            
+        },
+        {
+            "img_watch": "./assets/img/watch-7.png",
+            "title_product": "NEWPORT SLIM",
+            "price": "690.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"none",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Rupture",
+            "img_watch": "./assets/img/watch-8.png",
+            "title_product": "NEWPORT CHRONO",
+            "price": "650.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"rouge",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Nouveautés",
+            "img_watch": "./assets/img/watch-9.png",
+            "title_product": "JAZZMASTER THINLINE",
+            "price": "435.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"orange",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Meilleur vente",
+            "img_watch": "./assets/img/watch- 10.png",
+            "title_product": "NEWPORT CITY",
+            "price": "295.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"violet",
+            "reduct_None": "d-none"
+        },
+        {
+            "btn_label": "Rupture",
+            "img_watch": "./assets/img/watch-11.png",
+            "title_product": "24H ANTOINE",
+            "price": "149.00€",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"rouge",
+            "reduct_None": "d-none"
+        }
+        
+    ]
+    
+}
+
