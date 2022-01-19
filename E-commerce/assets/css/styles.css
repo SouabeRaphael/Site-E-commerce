@@ -200,7 +200,7 @@ body {
 /* Panier */
 /* --------------------------------------------------------- */
 
-.window-basket{
+.window-cart{
   position: absolute;
   left: 0;
   top: 0;
@@ -212,7 +212,7 @@ body {
 }
 
 
-.close-basket{
+.close-cart{
   width: 100%;
   height: auto;
   font-size: 35px;
@@ -224,7 +224,7 @@ body {
   cursor: pointer;
 }
 
-.title-basket{
+.title-cart{
   width: 85%;
   margin: auto;
   line-height: 6rem;
@@ -259,7 +259,7 @@ body {
   margin-bottom: 30px;
 }
 
-.watch-basket{
+.watch-cart{
   width: 130px;
   height: auto;
 }
@@ -353,7 +353,7 @@ body {
 }
 
 @media (max-width: 700px) {
-  .window-basket{
+  .window-cart{
     width: 100%;
   }
 }
@@ -367,10 +367,15 @@ body {
   }
   .title-article{
     margin-left: 0px;
+    text-align: center;
+  }
+  .price-article{
+    position: relative;
+    width: 400px;
   }
 }
 @media (max-width: 400px) {
-  .title-basket{
+  .title-cart{
     width: 80%;
     margin: auto;
     font-size: 25px;
@@ -391,6 +396,10 @@ body {
   .btn-commande{
     padding: 8px 20px;
     font-size: 15px;
+  }
+  .price-article{
+    position: relative;
+    width: 100%;
   }
 }
 
@@ -503,6 +512,33 @@ body {
   border: 3px solid white;
   margin-top: 30px;
 }
+
+/* ----------------------------------------------------------------- */
+/* circle page actif carousel */
+/* ------------------------------------------------------------------ */
+
+.point-actif{
+  position: absolute;
+  display: flex;
+  top: 93%;
+}
+
+
+.circle-item{
+  width: 18px;
+  height: 18px;
+  border-radius: 50px;
+  background-color: #707070;
+  margin: 20px;
+}
+
+.circle-item.actif{
+  background-color: white;
+}
+.circle-item.no-actif{
+  background-color: #707070;
+}
+/* fin cercle actif carousel */
 
 /* responsive mobil title principal */
 
@@ -1077,7 +1113,7 @@ body {
   text-decoration: line-through;
 }
 
-.basket{
+.cart{
   font-size: 18px;
   margin-top: 10px;
   border: none;

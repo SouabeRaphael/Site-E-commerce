@@ -1,21 +1,32 @@
 // ------------------------------------------------------------
 // Carousel de premier page
-// -------------------------------------------------------------
+// --------------------------------------------------------------
 
+// ---------------------------------------------------------------
+// element image
 let images = document.querySelectorAll(".carousel-img");
-
 let count = 0;
-
 images[0].classList.add("show");
 
 for (let i = 1; i < images.length; i++) {
   images[i].classList.add("hidden");
 }
+// --------------------------------------------------------------
 
+// --------------------------------------------------------------
+// element point 
+let point = document.querySelectorAll(".circle-item");
+let index = 0;
+point[0].classList.add("actif");
+
+// --------------------------------------------------------------
+
+// chercher le boutton
 let btnNext = document.getElementById("next");
 btnNext.addEventListener("click", imagesNext);
 
 function imagesNext() {
+  // image carousel
   if (count < images.length - 1) {
     let currentImage = document.querySelector(".show");
     currentImage.classList.add("hidden");
@@ -27,13 +38,29 @@ function imagesNext() {
   } else {
     count = -1;
   }
+
+  // point actif carousel
+  if (index < point.length - 1) {
+    let currentPoint = document.querySelector(".actif");
+    currentPoint.classList.add("no-actif");
+    currentPoint.classList.remove("actif");
+    index++;
+    let nextPoint = point[index];
+    nextPoint.classList.remove("no-actif");
+    nextPoint.classList.add("actif");
+  } else {
+    index = -1;
+  }
+
 }
 imagesNext();
 
+// chercher le bouton
 let btnBack = document.getElementById("prev");
 btnBack.addEventListener("click", imagesBack);
 
 function imagesBack() {
+  // images carousel
   if (count > 0) {
     let currentImage = document.querySelector(".show");
     currentImage.classList.add("hidden");
@@ -45,11 +72,25 @@ function imagesBack() {
   } else {
     count = images.length;
   }
+
+  // point actif carousel
+  if (index > 0) {
+    let currentPoint = document.querySelector(".actif");
+    currentPoint.classList.add("no-actif");
+    currentPoint.classList.remove("actif");
+    index--;
+    let backPoint = point[index];
+    backPoint.classList.remove("no-actif");
+    backPoint.classList.add("actif");
+  } else {
+    index = point.length;
+  }
 }
 imagesBack();
 
 // setInterval(imagesNext, 5000);
 
+// defiller carousel avec les fleche clavier
 window.addEventListener("keydown", function (e) {
   if (e.key === "ArrowRight") {
     imagesNext();
@@ -62,15 +103,18 @@ window.addEventListener("keydown", function (e) {
 // fin function de carousel
 // ---------------------------------------------------------------
 
+
+
+
+
 // -------------------------------------
 // menu burger
 // -------------------------------------
 
 let menu = document.querySelector(".burger");
-console.log(menu);
 
 let burger = document.querySelector(".burger-custom");
-console.log(burger);
+
 burger.addEventListener("click", toggleMenu);
 
 let cross = document.querySelector(".close");
@@ -90,9 +134,9 @@ function closeWindow() {
 // window panier
 // -------------------------------------------------------------
 
-let basket = document.querySelector(".window-basket");
+let basket = document.querySelector(".window-cart");
 
-let btnClose = document.querySelector(".close-basket");
+let btnClose = document.querySelector(".close-cart");
 
 btnClose.addEventListener("click", closeBasket);
 
@@ -143,14 +187,14 @@ fetch("assets/data/product.json")
                     <h1 class="title-product">${titleProduct}</h1>
                     <p class="price">${price}</p>
                     <p class="reduc-price ${reductNone}">${reducPrice}</p>
-                    <button class="basket">${btnBasket}<img class="arrow-btn"
+                    <button id="cart" class="cart" onclick="putCart()">${btnBasket}<img class="arrow-btn"
                             src="./assets/img/Icon ionic-ios-arrow-round-forward.png"></button>
                 </div>
             </div>`;
     });
   });
 
-  fetch("assets/data/product_2.json")
+fetch("assets/data/product_2.json")
   .then((reponse) => reponse.json())
   .then((jsonProduct2) => {
     jsonProduct2.results.map((product) => {
@@ -171,43 +215,54 @@ fetch("assets/data/product.json")
                     <button class="btn-label ${colorLabel} ${btnNone}">${btnLabel}</button>
                 </div>
                 <figure class="img-watch">
-                    <img class="img-product" src="${imgWatch}">
+                    <img id="image" class="img-product" src="${imgWatch}">
                 </figure>
                 <div class="separator-product">
                     <div class="line"></div>
                 </div>
                 <div class="info-product">
-                    <h1 class="title-product">${titleProduct}</h1>
-                    <p class="price">${price}</p>
+                    <h1 id="titre" class="title-product">${titleProduct}</h1>
+                    <p id="prix" class="price">${price}</p>
                     <p class="reduc-price ${reductNone}">${reducPrice}</p>
-                    <button class="basket">${btnBasket}<img class="arrow-btn"
+                    <button class="cart" onclick="putCart()">${btnBasket}<img class="arrow-btn"
                             src="./assets/img/Icon ionic-ios-arrow-round-forward.png"></button>
                 </div>
             </div>`;
     });
   });
 
-
-// fetch('assets/data/test.json')
-//     .then(reponse => reponse.json())
-//     .then((jsonProduct) => {
-//         jsonProduct.results.map((product) => {
-//             let btnLabel = product.btn_label;
-//             let imgWatch = product.img_watch;
-//             let titleProduct = product.title_product;
-//             let price = product.price;
-//             let btnBasket = product.btn_basket;
-
-//             let btn = document.querySelectorAll('.btn-label');
-
-//             for(let element of btn){
-//                 element.innerHTML = `${btnLabel}`
-//             }
-
-//         })
-//     })
-
 // fin fetch
+// ------------------------------------------------
+
+// Panier
+
+// function putCart(e) {
+//   let button =  e.type;
+//   console.log(button);
+//   let title = button.price;
+//   console.log(title);
+
+//   // let btn = document.querySelector('.cart');
+
+//   // let price = document.querySelector(".price");
+//   // let priceArticle = document.querySelector(".price-custom");
+//   // let pricePanier = price.innerHTML;
+//   // priceArticle.innerHTML = pricePanier;
+// }
+
+function putCart() {
+  let popUp = document.querySelector(".notif");
+
+  popUp.classList.add("pop-up");
+  setTimeout(removePopUp, 5000);
+
+  function removePopUp() {
+    popUp.classList.remove("pop-up");
+  }
+}
+
+
+
 
 // --------------------------------------------
 // boutton voir autre produit
@@ -236,100 +291,102 @@ function hiddenContent() {
   numberArticle.innerHTML = "11";
 }
 
+
+
 // ------------------------------------------------
 // notification ajout panier
 // ------------------------------------------------
 
-let popUp = document.querySelector(".notif");
-let btnPopUp = document.querySelectorAll(".basket");
-for (let btns of btnPopUp) {
-  btns.addEventListener("click", notif);
+function putCart() {
+  let popUp = document.querySelector(".notif");
 
-  function notif() {
-    popUp.classList.add("pop-up");
-    setTimeout(removePopUp, 5000);
-  }
+  popUp.classList.add("pop-up");
+  setTimeout(removePopUp, 5000);
 
   function removePopUp() {
     popUp.classList.remove("pop-up");
   }
 }
 
+// let popUp = document.querySelector(".notif");
+// let btnPopUp = document.querySelectorAll("#cart");
+// for (let btns of btnPopUp) {
+//   btns.addEventListener("click", notif);
+
+//   function notif() {
+//     popUp.classList.add("pop-up");
+//     setTimeout(removePopUp, 5000);
+//   }
+
+//   function removePopUp() {
+//     popUp.classList.remove("pop-up");
+//   }
+// }
+
+
+
+
 // -------------------------------------------------------------
 // panier
 // -------------------------------------------------------------
 
-// let prix = document.querySelectorAll(".price");
-// console.log(prix);
-// let btn = document.querySelectorAll(".basket");
-// let prixPanier = document.querySelector(".price-custom");
+// let BtnPanier = document.querySelector(".basket");
+// BtnPanier.addEventListener("click", getPanier);
+// let countPanier = 0;
+// let countqte = 0;
 
-// for (let element of btn) {
-//   element.addEventListener("click", test);
-//   function test() {
-//     let content = prix.innerHTML;
-//     prixPanier.innerHTML = content;
-//     console.log(content);
+// function getPanier() {
+//   let articlePanier = document.querySelector(".article");
+//   let recapPanier = document.querySelector(".recap-article");
+//   articlePanier.classList.remove("d-none");
+//   recapPanier.classList.remove("d-none");
+
+//   // chercher les endroit dans les article
+//   let price = document.querySelector(".price");
+//   let title = document.querySelector(".title-product");
+//   let img = document.querySelector(".img-product");
+
+//   // chercher les endroit dans le panier
+//   let titleArticle = document.querySelector(".title-article");
+//   let priceArticle = document.querySelector(".price-custom");
+//   let imgArticle = document.querySelector(".watch-basket");
+
+//   // prendre ca valeur
+//   let titlePanier = title.innerHTML;
+//   let pricePanier = price.innerHTML;
+//   let imgPanier = img.getAttribute("src");
+
+//   // chercher les elment du Recap pannier
+//   let priceRecap = document.querySelector(".price-recap");
+//   let priceLivraison = document.querySelector(".price-livraison");
+//   let priceTotalRecap = document.querySelector(".price-total-recap");
+
+//   let priceLivr = priceLivraison.innerHTML;
+
+//   // remplisage du panier
+//   titleArticle.innerHTML = titlePanier;
+//   priceArticle.innerHTML = pricePanier;
+//   imgArticle.src = imgPanier;
+
+//   // ajouter les valeur au recap panier
+//   priceRecap.innerHTML = pricePanier;
+//   priceTotalRecap.innerHTML = pricePanier + priceLivr;
+
+//   // conteur pour pour la quantity des article
+//   countPanier++;
+//   countqte++;
+
+//   // quantity des articles
+
+//   let qtePanier = document.querySelector(".panier");
+//   let quantity = document.querySelector(".quantity-custom");
+//   qtePanier.innerHTML = countPanier;
+//   quantity.innerHTML = countqte;
+
+//   let plus = document.querySelector(".fa-plus");
+//   plus.addEventListener("click", plusQuantity);
+
+//   function plusQuantity() {
+//     countPanier + 1;
 //   }
 // }
-
-let BtnPanier = document.querySelector(".basket");
-BtnPanier.addEventListener("click", getPanier);
-let countPanier = 0;
-let countqte = 0;
-
-function getPanier() {
-  let articlePanier = document.querySelector(".article");
-  let recapPanier = document.querySelector(".recap-article");
-  articlePanier.classList.remove("d-none");
-  recapPanier.classList.remove("d-none");
-
-  // chercher les endroit dans les article
-  let price = document.querySelector(".price");
-  let title = document.querySelector(".title-product");
-  let img = document.querySelector(".img-product");
-
-  // chercher les endroit dans le panier
-  let titleArticle = document.querySelector(".title-article");
-  let priceArticle = document.querySelector(".price-custom");
-  let imgArticle = document.querySelector(".watch-basket");
-
-  // prendre ca valeur
-  let titlePanier = title.innerHTML;
-  let pricePanier = price.innerHTML;
-  let imgPanier = img.getAttribute("src");
-
-  // chercher les elment du Recap pannier
-  let priceRecap = document.querySelector(".price-recap");
-  let priceLivraison = document.querySelector(".price-livraison");
-  let priceTotalRecap = document.querySelector(".price-total-recap");
-
-  let priceLivr = priceLivraison.innerHTML;
-
-  // remplisage du panier
-  titleArticle.innerHTML = titlePanier;
-  priceArticle.innerHTML = pricePanier;
-  imgArticle.src = imgPanier;
-
-  // ajouter les valeur au recap panier
-  priceRecap.innerHTML = pricePanier;
-  priceTotalRecap.innerHTML = pricePanier + priceLivr;
-
-  // conteur pour pour la quantity des article
-  countPanier++;
-  countqte++;
-
-  // quantity des articles
-
-  let qtePanier = document.querySelector(".panier");
-  let quantity = document.querySelector(".quantity-custom");
-  qtePanier.innerHTML = countPanier;
-  quantity.innerHTML = countqte;
-
-  let plus = document.querySelector(".fa-plus");
-  plus.addEventListener("click", plusQuantity);
-
-  function plusQuantity() {
-    countPanier + 1;
-  }
-}
