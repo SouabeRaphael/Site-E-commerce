@@ -1,6 +1,7 @@
 {
     "results":[
         {
+            "id": "item1",
             "btn_label": "Meilleur vente",
             "img_watch": "./assets/img/watch-1.png",
             "title_product": "NEWPORT AUTOMATIC",
@@ -11,6 +12,7 @@
             "altImg": "Image montre Newport Automatic de chez Micehelle Herbelin"
         },
         {
+            "id": "item2",
             "btn_label": "Nouveautés",
             "img_watch": "./assets/img/watch-2.png",
             "title_product": "BASTILLE-FREGATE",
@@ -21,6 +23,7 @@
             "altImg": "Image montre Bastille-Fregate de chez Charlie-Paris"
         },
         {
+            "id": "item3",
             "btn_label": "Nouveautés",
             "img_watch": "./assets/img/watch-3.png",
             "title_product": "NEWPORT AUTOMATIC",
@@ -31,6 +34,7 @@
             "altImg": "Image montre Newport Auromatic de chez Michelle Herbelin"
         },
         {
+            "id": "item4",
             "btn_label": "Réduction",
             "img_watch": "./assets/img/watch-4.png",
             "title_product": "BASTILLE B4",
@@ -41,6 +45,7 @@
             "altImg": "Image montre Bastille B4 de chez Charlie-Paris"
         },
         {
+            "id": "item5",
             "btn_label": "Réduction",
             "img_watch": "./assets/img/watch-5.png",
             "title_product": "NEWPORT AUTOMATIC",
@@ -51,6 +56,7 @@
             "altImg": "Image montre Newport Automatic de chez Michelle Herbelin"
         },
         {
+            "id": "item6",
             "btn_label": "Meilleur vente",
             "img_watch": "./assets/img/watch-6.png",
             "title_product": "ARCEAU HERMES",
@@ -62,6 +68,7 @@
             
         },
         {
+            "id": "item7",
             "img_watch": "./assets/img/watch-7.png",
             "title_product": "NEWPORT SLIM",
             "price": "690.00",
@@ -71,6 +78,7 @@
             "altImg": "Image montre Newport Slim de chez Michelle Herbelin"
         },
         {
+            "id": "item8",
             "btn_label": "Rupture",
             "img_watch": "./assets/img/watch-8.png",
             "title_product": "NEWPORT CHRONO",
@@ -81,6 +89,7 @@
             "altImg": "Image montre Newport Chrono de chez Michelle Herbelin"
         },
         {
+            "id": "item9",
             "btn_label": "Nouveautés",
             "img_watch": "./assets/img/watch-9.png",
             "title_product": "JAZZMASTER THINLINE",
@@ -91,6 +100,7 @@
             "altImg": "Image montre JazzMaster Thinline de chez Hamilton"
         },
         {
+            "id": "item10",
             "btn_label": "Meilleur vente",
             "img_watch": "./assets/img/watch- 10.png",
             "title_product": "NEWPORT CITY",
@@ -101,6 +111,7 @@
             "altImg": "Image montre Newport City de chez Michelle Herbelin"
         },
         {
+            "id": "item11",
             "btn_label": "Rupture",
             "img_watch": "./assets/img/watch-11.png",
             "title_product": "24H ANTOINE",

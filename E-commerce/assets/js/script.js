@@ -25,6 +25,8 @@ point[0].classList.add("actif");
 let btnNext = document.getElementById("next");
 btnNext.addEventListener("click", imagesNext);
 
+// fonction qui page les image de gauche a droite
+
 function imagesNext() {
   // image carousel
   if (count < images.length - 1) {
@@ -58,6 +60,8 @@ imagesNext();
 let btnBack = document.getElementById("prev");
 btnBack.addEventListener("click", imagesBack);
 
+// fonction qui page les image de droite à gauche
+
 function imagesBack() {
   // images carousel
   if (count > 0) {
@@ -89,7 +93,9 @@ imagesBack();
 
 // setInterval(imagesNext, 5000);
 
+// @@@
 // defiller carousel avec les fleche clavier
+// @@@
 window.addEventListener("keydown", function (e) {
   if (e.key === "ArrowRight") {
     imagesNext();
@@ -147,6 +153,7 @@ function closeBasket() {
 }
 
 // fin panier
+// -----------------------------------
 
 // ---------------------------------------------------------------------------
 // fonction fetch pour rempli tout les produits dans la html
@@ -166,10 +173,11 @@ fetch("assets/data/product.json")
       let btnNone = product.btn_none;
       let reductNone = product.reduct_None;
       let altImg = product.altImg;
+      let id = product.id;
 
       let content1 = document.querySelector(".grid-product");
       content1.innerHTML += `
-            <div class="watch-item">
+            <div class="watch-item ${id}">
                 <div class="button-product">
                     <button class="btn-label ${colorLabel} ${btnNone}">${btnLabel}</button>
                 </div>
@@ -191,6 +199,10 @@ fetch("assets/data/product.json")
     addCart();
   });
 
+  // ------------------------------------------------------------------------------------------------------------
+// fonction fetch pour rempli d'autre produit dnas le html après avoir cliquer sur le button "Voit plus"
+// -------------------------------------------------------------------------------------------------------------
+
 fetch("assets/data/product_2.json")
   .then((reponse) => reponse.json())
   .then((jsonProduct2) => {
@@ -205,10 +217,11 @@ fetch("assets/data/product_2.json")
       let btnNone = product.btn_none;
       let reductNone = product.reduct_None;
       let altImg = product.altImg;
+      let id = product.id;
 
       let content2 = document.querySelector(".grid-product-2");
       content2.innerHTML += `
-            <div class="watch-item">
+            <div class="watch-item ${id}">
                 <div class="button-product">
                     <button class="btn-label ${colorLabel} ${btnNone}">${btnLabel}</button>
                 </div>
@@ -230,11 +243,11 @@ fetch("assets/data/product_2.json")
   });
 
 // fin fetch
-// ------------------------------------------------
+// --------------------------------------------------------------
 
-// ----------------------------------------------
-// Panier
-// ----------------------------------------------
+// --------------------------------------------------------
+// Fonction qui va gérer tout le système du panier
+// --------------------------------------------------------
 
 // for (let btn of btnCart) {
 //   btn.addEventListener("click", function () {
@@ -243,10 +256,17 @@ fetch("assets/data/product_2.json")
 //   });
 // }
 
+// ---------------------------------------------------------------------------------
+// Grande fonction qui identifier le bon produits a sont click de mise au panier
+// Elle regroude aussi toute les fonction qui gere le panier
+// ---------------------------------------------------------------------------------
+
 function addCart() {
   let btnCart = document.querySelectorAll(".cart");
   console.log(btnCart);
-
+  // @@@
+  // fonction onclick qui cible le bon button du mise au panier
+  // @@@
   for (let btn of btnCart) {
     btn.onclick = function () {
       let product = btn.closest(".watch-item");
@@ -284,10 +304,47 @@ function addCart() {
       </div>
       </div>`;
 
-      let nbrArticle = document.querySelector('.numberArticle');
-      let valueNbr = parseFloat(nbrArticle.innerHTML);
-      nbrArticle.innerHTML = valueNbr + 1;
+      // @@@
+      // Fonction qui ajoute 1 au panier à chaque mise au panier d'un article
+      // @@@
+      function addNbrCart(){
+        let cart = document.querySelector('.panier');
+        let valueCart = parseFloat(cart.innerHTML);
+        cart.innerHTML = valueCart + 1;
+      }
+      addNbrCart();
 
+      // @@@
+      // Fonction qui retire 1 au panier à chaque article supprimer du panier
+      // @@@
+      function removeNbrCart(){
+        let cart = document.querySelector('.panier');
+        let valueCart = parseFloat(cart.innerHTML);
+        cart.innerHTML = valueCart - 1;
+      }
+      
+      // @@@
+      // Fonction qui ajoute 1 au panier récapitulatif à chaque mise au panier d'un article
+      // @@@
+      function nbrQuantityProductPlus(){
+        let nbrArticle = document.querySelector('.numberArticle');
+        let valueNbr = parseFloat(nbrArticle.innerHTML);
+        nbrArticle.innerHTML = valueNbr + 1;
+      }
+      nbrQuantityProductPlus();
+
+      // @@@
+      // Fonction qui retire 1 au panier récapitulatif à chaque article supprimer du panier
+      // @@@
+      function nbrQuantityProductMinus(){
+        let nbrArticle = document.querySelector('.numberArticle');
+        let valueNbr = parseFloat(nbrArticle.innerHTML);
+        nbrArticle.innerHTML = valueNbr - 1;
+      }
+
+      // @@@
+      // Fonction qui ajoute le montant de toute les montre mise au panier dans le récapitulatif du panier
+      // @@@
       function priceAllArticle() {
         let PrixArticle = product.querySelector(".price");
         let prixRecap = document.querySelector(".price-recap");
@@ -298,6 +355,10 @@ function addCart() {
       }
       priceAllArticle();
 
+
+      // @@@
+      // Fonction qui gere le système de frois de port et de cout total
+      // @@@
       function priceTotal() {
 
         let priceAll = document.querySelector(".price-recap");
@@ -319,8 +380,69 @@ function addCart() {
       priceTotal();
 
 
+      // @@@
+      // fonction qui ajoute le produits dont on a click sur la flèche plus pour ajouter le meme produits
+      // @@@
+
+      let btnIconPlus = document.querySelectorAll('.fa-plus');
+
+      for(let element of btnIconPlus){
+        element.addEventListener('click', addWatch);
+
+        function addWatch(){
+          // let itemCart = element.closest('.article');
+          let priceCustom = document.querySelector('.price-custom');
+          let addPriceArticle = document.querySelector('.price-recap');
+          let quantityCustom = document.querySelector('.quantity-custom');
+          let valueQuantityCustom = parseFloat(quantityCustom.innerHTML);
+          quantityCustom.innerHTML = valueQuantityCustom + 1;
+          let valueAddPriceArticle = parseFloat(addPriceArticle.innerHTML);
+          let valuePriceCustom = parseFloat(priceCustom.innerHTML);
+          addPriceArticle.innerHTML = valueAddPriceArticle + valuePriceCustom + "€";
+          priceTotal()
+          nbrQuantityProductPlus();
+          addNbrCart();
+        }
+      }
 
 
+      // @@@
+      // fonction qui supprime le produits dont on a click sur la flèche moins pour supprimer le meme produit
+      // @@@
+      let iconMinus = document.querySelector('.fa-minus');
+      iconMinus.addEventListener('click', removeWatch);
+
+      let btnIconMinus = document.querySelectorAll('.fa-minus');
+
+      for(let minus of btnIconMinus){
+        minus.addEventListener('click', removeWatch);
+        
+        function removeWatch(){
+          // let itemCart = minus.closest('.article');
+          let priceCustom = document.querySelector('.price-custom');
+          let addPriceArticle = document.querySelector('.price-recap');
+          let quantityCustom = document.querySelector('.quantity-custom');
+          let valueQuantityCustom = parseFloat(quantityCustom.innerHTML);
+
+          quantityCustom.innerHTML = valueQuantityCustom - 1;
+          let valueAddPriceArticle = parseFloat(addPriceArticle.innerHTML);
+          let valuePriceCustom = parseFloat(priceCustom.innerHTML);
+          addPriceArticle.innerHTML = valueAddPriceArticle - valuePriceCustom + "€";
+
+          let itemCart = document.querySelector('.article')
+          if (valueQuantityCustom < 2){
+            itemCart.remove();
+          }
+
+          removeNbrCart();
+          priceTotal()
+          nbrQuantityProductMinus();
+        }
+      }
+
+      // @@@
+      // Fonction qui gere l'aparition et la disparition de du pop up de mise au panier
+      // @@@
       function putCart() {
         let popUp = document.querySelector(".notif");
 
@@ -335,9 +457,12 @@ function addCart() {
     };
   }
 }
+// --------------------------------------------------------
+// Fin de la Fonction qui gere tout le système du panier
+// --------------------------------------------------------
 
 // --------------------------------------------
-// boutton voir autre produit
+// Function qui gere le boutton voir autre produit
 // --------------------------------------------
 
 let gridContent2 = document.querySelector(".grid-product-2");
@@ -362,83 +487,3 @@ function hiddenContent() {
   btnOther1.classList.remove("hiddenContent");
   numberArticle.innerHTML = "11";
 }
-
-// ------------------------------------------------
-// notification ajout panier
-// ------------------------------------------------
-
-function putCart() {
-  let popUp = document.querySelector(".notif");
-
-  popUp.classList.add("pop-up");
-  setTimeout(removePopUp, 5000);
-
-  function removePopUp() {
-    popUp.classList.remove("pop-up");
-  }
-}
-
-// -------------------------------------------------------------
-// panier
-// -------------------------------------------------------------
-
-// let BtnPanier = document.querySelector(".basket");
-// BtnPanier.addEventListener("click", getPanier);
-// let countPanier = 0;
-// let countqte = 0;
-
-// function getPanier() {
-//   let articlePanier = document.querySelector(".article");
-//   let recapPanier = document.querySelector(".recap-article");
-//   articlePanier.classList.remove("d-none");
-//   recapPanier.classList.remove("d-none");
-
-//   // chercher les endroit dans les article
-//   let price = document.querySelector(".price");
-//   let title = document.querySelector(".title-product");
-//   let img = document.querySelector(".img-product");
-
-//   // chercher les endroit dans le panier
-//   let titleArticle = document.querySelector(".title-article");
-//   let priceArticle = document.querySelector(".price-custom");
-//   let imgArticle = document.querySelector(".watch-basket");
-
-//   // prendre ca valeur
-//   let titlePanier = title.innerHTML;
-//   let pricePanier = price.innerHTML;
-//   let imgPanier = img.getAttribute("src");
-
-//   // chercher les elment du Recap pannier
-//   let priceRecap = document.querySelector(".price-recap");
-//   let priceLivraison = document.querySelector(".price-livraison");
-//   let priceTotalRecap = document.querySelector(".price-total-recap");
-
-//   let priceLivr = priceLivraison.innerHTML;
-
-//   // remplisage du panier
-//   titleArticle.innerHTML = titlePanier;
-//   priceArticle.innerHTML = pricePanier;
-//   imgArticle.src = imgPanier;
-
-//   // ajouter les valeur au recap panier
-//   priceRecap.innerHTML = pricePanier;
-//   priceTotalRecap.innerHTML = pricePanier + priceLivr;
-
-//   // conteur pour pour la quantity des article
-//   countPanier++;
-//   countqte++;
-
-//   // quantity des articles
-
-//   let qtePanier = document.querySelector(".panier");
-//   let quantity = document.querySelector(".quantity-custom");
-//   qtePanier.innerHTML = countPanier;
-//   quantity.innerHTML = countqte;
-
-//   let plus = document.querySelector(".fa-plus");
-//   plus.addEventListener("click", plusQuantity);
-
-//   function plusQuantity() {
-//     countPanier + 1;
-//   }
-// }
