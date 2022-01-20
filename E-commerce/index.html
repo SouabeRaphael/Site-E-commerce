@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch-Time | Site-E-commerce</title>
+    <title>Watch-Time | Site-E-commerce-de-montre</title>
+    <meta name="description" content="Plongez dans les eaux profondes avec ce garde-temps automatique étanche à 300 mètres. Portez à votre poignet la nouvelle Newport de chez Michelle Herbellin, les 24h Antoine de chez Gustace & cie ou encore les magnifiques montres de chez Hermes. Paiement en 3x ou 4x. Livraison gratuite.">
     <!-- appel de Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -19,10 +20,12 @@
 </head>
 
 <body>
+    <!---------------------------------------------------------------Header------------------------------------------------------------->
     <header class="container-fluid content-header">
+        <!------------------------------NavaBar------------------------------>
         <div class="header-wrapper">
-            <a href="#" class="logo"><img src="./assets/img/Watch Time.png"></a>
-            <a href="#" class="logo-mobil"><img class="img-logo" src="./assets/img/logo-site-montre-mobil.png"></a>
+            <a href="#" class="logo"><img src="./assets/img/Watch Time.png" alt="Logo Watch Time"></a>
+            <a href="#" class="logo-mobil"><img class="img-logo" src="./assets/img/logo-site-montre-mobil.png" alt="Logo Watch Time"></a>
             <div class="navigation item-menu">
                 <a href="#" class="item active">Accueil</a>
                 <a href="#" class="item">Nos montres</a>
@@ -32,7 +35,7 @@
                 <a class="icon-search"><i class="fas fa-search"></i></a>
                 <a href="#" class="panier">0</a>
             </div>
-            <!-- menu burger -->
+            <!------------------------------Menu burger------------------------------>
             <div class="icon-burger">
                 <i class="fa fa-bars burger-custom"></i>
                 <a href="#" class="panier">0</a>
@@ -51,6 +54,7 @@
                 <a href="#" class="item-burger">Accessoire</a>
             </nav>
         </div>
+        <!------------------------------Fenetre du panier------------------------------>
         <div class="window-cart">
             <div class="close-cart">
                 <i class="fas fa-times"></i>
@@ -59,7 +63,7 @@
                 <h1 class="title-cart">Votre panier</h1>
                 <div class="info-article">
                     <h2 class="title-area-article">Article</h2>
-                    <div class="article">
+                    <!-- <div class="article">
                         <img class="watch-cart" src="./assets/img/watch-8.png">
                         <div class="area-article">
                             <h2 class="title-article">NEWPORT CHRONO</h2>
@@ -81,21 +85,21 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="recapitulatif">
                         <h2 class="title-recap">Récapitulatif</h2>
                         <div class="recap-article">
                             <div class="item-recap recap-quantity">
-                                <p><b>1</b> ARTICLE</p>
-                                <p class="price-recap">650.00€</p>
+                                <p><b class="numberArticle">0</b> ARTICLE</p>
+                                <p class="price-recap">0€</span></p>
                             </div>
                             <div class="item-recap recap-delivery">
                                 <p>LIVRAISON</p>
-                                <p class="price-livraison">6.90€</p>
+                                <p class="price-livraison">0€</p>
                             </div>
                             <div class="item-recap recap-total">
                                 <p>SOUS-TOTAL</p>
-                                <p class="price-total-recap">656,90€</p>
+                                <p class="price-total-recap">0€</p>
                             </div>
                         </div>
                     </div>
@@ -103,20 +107,24 @@
                 <button class="btn-commande">Commander</button>
             </div>
         </div>
-        <!-- fin menu burger -->
+        <!------------------------------Fin Fenetre panier------------------------------>
     </header>
-
+    <!---------------------------------------------------------------Fin header------------------------------------------------------------->
     <main class="site-content">
+        <!---------------------------------------------------------------Contenue ------------------------------------------------------------->
+
+        <!------------------------------First page------------------------------>
         <div class="first-page">
+            <!------------------------------Carousel------------------------------>
             <div class="btn-arrow">
                 <div id="prev"><i class="fas fa-arrow-left"></i></div>
                 <div id="next"><i class="fas fa-arrow-right"></i></div>
             </div>
 
             <div class="carousel">
-                <img class="carousel-img" src="./assets/img/image_1.jpg">
-                <img class="carousel-img" src="./assets/img/image_2.jpg">
-                <img class="carousel-img" src="./assets/img/image_3.jpg">
+                <img class="carousel-img" src="./assets/img/image_1.jpg" alt="Image d'une monntre 24H Antoine de chez Gustace & Cie poser dans un décor végétal">
+                <img class="carousel-img" src="./assets/img/image_2.jpg" alt="Image d'une montre 24H Antoine bleu nuit de chez Gustave & Cie">
+                <img class="carousel-img" src="./assets/img/image_3.jpg" alt="Image d'une montre 24H Antoine vert végétal de chez Gustave & Cie">
             </div>
             <div class="title-first-page">
                 <div class="title-principal">
@@ -130,8 +138,10 @@
                 <div class="circle-item"></div>
                 <div class="circle-item"></div>
             </div>
+            <!------------------------------Fin Carousel------------------------------>
         </div>
         <div class="content-wrapper">
+            <!------------------------------Category page------------------------------>
             <div class="container-fluid category">
                 <h1 class="category-title">Catalogue</h1>
                 <h2 class="title-superposition">Catalogue</h2>
@@ -156,16 +166,19 @@
                             <button class="btn-catalogue">Découvrir</button>
                         </div>
                     </div>
-
                 </div>
+                <!------------------------------Fin Category page------------------------------>
             </div>
             <div class="container-fluid watch-popular">
+                <!------------------------------Séparateur section------------------------------>
                 <div class="separator">
                     <div class="separator-left"></div>
                     <h1 class="title-watch-popular">La plus populaire</h1>
                     <div class="separator-right"></div>
                 </div>
+                <!------------------------------Fin Séparateur section------------------------------>
                 <div class="section-watch-newport">
+                    <!------------------------------Page watch populaire------------------------------>
                     <div class="text-watch">
                         <h1 class="title-newport">NEWPORT CHRONO</h1>
                         <p class="description-newport">Avec son design inspiré de l'univers nautique, la montre Newport
@@ -186,11 +199,13 @@
                         <button class="btn-newport">Acheter</button>
                     </div>
                     <div class="img-newport">
-                        <img class=".img-fluid newport-chrono" src="./assets/img/Groupe 8.png">
+                        <img class=".img-fluid newport-chrono" src="./assets/img/Groupe 8.png" alt="Image d'une montre Newport Chrono de chez Michelle Herbellin porté sur un poigner">
                     </div>
+                    <!------------------------------Fin Page watch populaire------------------------------>
                 </div>
             </div>
             <div class="container-fluid section-product">
+                <!------------------------------Page de tout les produits------------------------------>
                 <div class="separator">
                     <div class="separator-left"></div>
                     <h1 class="title-watch-popular">Nos montres</h1>
@@ -201,6 +216,7 @@
                 </div>
                 <h2 class="info-display">Affichage de 1-<span class="number-article">11</span> sur 16</h2>
                 <div class="grid-product">
+                    <!------------------------------Produits------------------------------>
                     <!-- <div class="watch-item">
                         <div class="button-product">
                             <button class="btn-label violet">Meilleur ventes</button>
@@ -399,9 +415,9 @@
                         </div>
                     </div> -->
                 </div>
-               
+               <!------------------------------Fin première section des produit produits------------------------------>
                 <div class="grid-product-2">
-
+                    <!------------------------------Deuxième section produits en cliquant sur le button "Voir plus" en bas de page---"--------------------------->
                     <!-- <div class="watch-item">
                         <div class="button-product">
                             <button class="btn-label violet">Meilleur ventes</button>
@@ -490,11 +506,13 @@
                             <button class="cart">Mettre au panier<img class="arrow-btn"
                                     src="./assets/img/Icon ionic-ios-arrow-round-forward.png"></button>
                         </div>
-
+                        <!------------------------------Fin produits------------------------------>
                     </div> -->
+                    <!------------------------------Fin deuxuème section des produit produits------------------------------>
                 </div>
 
             </div>
+            <!------------------------------Button voir plus------------------------------>
             <div class="see-more">
                 <div class="btn-other-product">
                     <button class="btn-autre-1">Voir plus</button>
@@ -505,15 +523,16 @@
                     <button class="btn-autre-2">Voir moins</button>
                 </div>
             </div>
-
-
+            <!------------------------------Fin button------------------------------>
         </div>
-
+        <!---------------------------------------------------------------Fin contenu------------------------------------------------------------->
+        
+        <!---------------------------------------------------------------Footer------------------------------------------------------------->
         <footer class="container-fluid footer-wrapper">
             <div class="content-footer">
                 <div class="info-company">
                     <figure class="section-logo">
-                        <img class="logo-footer" src="./assets/img/logo.svg">
+                        <img class="logo-footer" src="./assets/img/logo.svg" alt="Logo Watch Time">
                     </figure>
                     <div class="service">
                         <h1 class="title-item-footer">Service</h1>
@@ -544,7 +563,7 @@
                     <a href="#" class="cgv">Condition générales de vente</a>
                 </div>
             </div>
-
+            <!---------------------------------------------------------------Fin footer------------------------------------------------------------->
         </footer>
     </main>
 

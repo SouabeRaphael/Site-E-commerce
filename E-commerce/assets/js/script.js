@@ -14,7 +14,7 @@ for (let i = 1; i < images.length; i++) {
 // --------------------------------------------------------------
 
 // --------------------------------------------------------------
-// element point 
+// element point
 let point = document.querySelectorAll(".circle-item");
 let index = 0;
 point[0].classList.add("actif");
@@ -51,7 +51,6 @@ function imagesNext() {
   } else {
     index = -1;
   }
-
 }
 imagesNext();
 
@@ -102,10 +101,6 @@ window.addEventListener("keydown", function (e) {
 
 // fin function de carousel
 // ---------------------------------------------------------------
-
-
-
-
 
 // -------------------------------------
 // menu burger
@@ -170,6 +165,7 @@ fetch("assets/data/product.json")
       let colorLabel = product.color_label;
       let btnNone = product.btn_none;
       let reductNone = product.reduct_None;
+      let altImg = product.altImg;
 
       let content1 = document.querySelector(".grid-product");
       content1.innerHTML += `
@@ -178,20 +174,21 @@ fetch("assets/data/product.json")
                     <button class="btn-label ${colorLabel} ${btnNone}">${btnLabel}</button>
                 </div>
                 <figure class="img-watch">
-                    <img class="img-product" src="${imgWatch}">
+                    <img class="img-product" src="${imgWatch}" alt="${altImg}">
                 </figure>
                 <div class="separator-product">
                     <div class="line"></div>
                 </div>
                 <div class="info-product">
                     <h1 class="title-product">${titleProduct}</h1>
-                    <p class="price">${price}</p>
-                    <p class="reduc-price ${reductNone}">${reducPrice}</p>
-                    <button id="cart" class="cart" onclick="putCart()">${btnBasket}<img class="arrow-btn"
+                    <p class="price">${price}€</p>
+                    <p class="reduc-price ${reductNone}">${reducPrice}€</p>
+                    <button id="cart" class="cart">${btnBasket}<img class="arrow-btn"
                             src="./assets/img/Icon ionic-ios-arrow-round-forward.png"></button>
                 </div>
             </div>`;
     });
+    addCart();
   });
 
 fetch("assets/data/product_2.json")
@@ -207,6 +204,7 @@ fetch("assets/data/product_2.json")
       let colorLabel = product.color_label;
       let btnNone = product.btn_none;
       let reductNone = product.reduct_None;
+      let altImg = product.altImg;
 
       let content2 = document.querySelector(".grid-product-2");
       content2.innerHTML += `
@@ -215,16 +213,16 @@ fetch("assets/data/product_2.json")
                     <button class="btn-label ${colorLabel} ${btnNone}">${btnLabel}</button>
                 </div>
                 <figure class="img-watch">
-                    <img id="image" class="img-product" src="${imgWatch}">
+                    <img id="image" class="img-product" src="${imgWatch}" alt="${altImg}">
                 </figure>
                 <div class="separator-product">
                     <div class="line"></div>
                 </div>
                 <div class="info-product">
                     <h1 id="titre" class="title-product">${titleProduct}</h1>
-                    <p id="prix" class="price">${price}</p>
-                    <p class="reduc-price ${reductNone}">${reducPrice}</p>
-                    <button class="cart" onclick="putCart()">${btnBasket}<img class="arrow-btn"
+                    <p id="prix" class="price">${price}€</p>
+                    <p class="reduc-price ${reductNone}">${reducPrice}€</p>
+                    <button class="cart">${btnBasket}<img class="arrow-btn"
                             src="./assets/img/Icon ionic-ios-arrow-round-forward.png"></button>
                 </div>
             </div>`;
@@ -234,35 +232,109 @@ fetch("assets/data/product_2.json")
 // fin fetch
 // ------------------------------------------------
 
+// ----------------------------------------------
 // Panier
+// ----------------------------------------------
 
-// function putCart(e) {
-//   let button =  e.type;
-//   console.log(button);
-//   let title = button.price;
-//   console.log(title);
-
-//   // let btn = document.querySelector('.cart');
-
-//   // let price = document.querySelector(".price");
-//   // let priceArticle = document.querySelector(".price-custom");
-//   // let pricePanier = price.innerHTML;
-//   // priceArticle.innerHTML = pricePanier;
+// for (let btn of btnCart) {
+//   btn.addEventListener("click", function () {
+//     let product = btn.closest(".watch-item");
+//     console.log(product);
+//   });
 // }
 
-function putCart() {
-  let popUp = document.querySelector(".notif");
+function addCart() {
+  let btnCart = document.querySelectorAll(".cart");
+  console.log(btnCart);
 
-  popUp.classList.add("pop-up");
-  setTimeout(removePopUp, 5000);
+  for (let btn of btnCart) {
+    btn.onclick = function () {
+      let product = btn.closest(".watch-item");
+      let title = product.querySelector(".title-product");
+      let price = product.querySelector(".price");
+      let img = product.querySelector(".img-product");
 
-  function removePopUp() {
-    popUp.classList.remove("pop-up");
+      let titleArticle = title.innerHTML;
+      let priceArticle = price.innerHTML;
+      let imgArticle = img.src;
+
+      let infoCart = document.querySelector(".title-area-article");
+      infoCart.innerHTML += `
+      <div class="article">
+      <img class="watch-cart" src="${imgArticle}">
+      <div class="area-article">
+          <h2 class="title-article">${titleArticle}</h2>
+          <div class="price-article">
+              <div class="quantity">
+                  <h2 class="qte">QTE</h2>
+                  <div class="icon-quantity">
+                      <i class="fas fa-minus"></i>
+                      <p class="quantity-custom">1</p>
+                      <i class="fas fa-plus"></i>
+                  </div>
+              </div>
+              <div class="price-watch">
+                  <h2 class="prix">PRIX</h2>
+                  <div class="content-price">
+                      <p class="price-custom">${priceArticle}</p>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+      </div>`;
+
+      let nbrArticle = document.querySelector('.numberArticle');
+      let valueNbr = parseFloat(nbrArticle.innerHTML);
+      nbrArticle.innerHTML = valueNbr + 1;
+
+      function priceAllArticle() {
+        let PrixArticle = product.querySelector(".price");
+        let prixRecap = document.querySelector(".price-recap");
+        let ConverPrix = parseFloat(PrixArticle.innerHTML);
+        let ConverPrixRecap = parseFloat(prixRecap.innerHTML);
+
+        prixRecap.innerHTML = ConverPrixRecap + ConverPrix + "€";
+      }
+      priceAllArticle();
+
+      function priceTotal() {
+
+        let priceAll = document.querySelector(".price-recap");
+        let converPriceAll = parseFloat(priceAll.innerHTML);
+
+        let numberDelivery = 6.99;
+        let priceTotalRecap = document.querySelector(".price-total-recap");
+        let delivery = document.querySelector(".price-livraison");
+        let priceDelivery = parseFloat(numberDelivery);
+
+        if (converPriceAll > 500) {
+          delivery.innerHTML = `6,99€`
+          priceTotalRecap.innerHTML = converPriceAll + priceDelivery + "€";
+        } else if (converPriceAll < 500) {
+          priceTotalRecap.innerHTML = converPriceAll + "€";
+          delivery.innerHTML = `Gratuite`
+        }
+      }
+      priceTotal();
+
+
+
+
+      function putCart() {
+        let popUp = document.querySelector(".notif");
+
+        popUp.classList.add("pop-up");
+        setTimeout(removePopUp, 5000);
+
+        function removePopUp() {
+          popUp.classList.remove("pop-up");
+        }
+      }
+      putCart();
+    };
   }
 }
-
-
-
 
 // --------------------------------------------
 // boutton voir autre produit
@@ -291,8 +363,6 @@ function hiddenContent() {
   numberArticle.innerHTML = "11";
 }
 
-
-
 // ------------------------------------------------
 // notification ajout panier
 // ------------------------------------------------
@@ -307,24 +377,6 @@ function putCart() {
     popUp.classList.remove("pop-up");
   }
 }
-
-// let popUp = document.querySelector(".notif");
-// let btnPopUp = document.querySelectorAll("#cart");
-// for (let btns of btnPopUp) {
-//   btns.addEventListener("click", notif);
-
-//   function notif() {
-//     popUp.classList.add("pop-up");
-//     setTimeout(removePopUp, 5000);
-//   }
-
-//   function removePopUp() {
-//     popUp.classList.remove("pop-up");
-//   }
-// }
-
-
-
 
 // -------------------------------------------------------------
 // panier
