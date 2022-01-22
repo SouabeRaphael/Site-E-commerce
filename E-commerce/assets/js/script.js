@@ -390,10 +390,10 @@ function addCart() {
         element.addEventListener('click', addWatch);
 
         function addWatch(){
-          // let itemCart = element.closest('.article');
-          let priceCustom = document.querySelector('.price-custom');
+          let itemCart = element.closest('.article');
+          let priceCustom = itemCart.querySelector('.price-custom');
           let addPriceArticle = document.querySelector('.price-recap');
-          let quantityCustom = document.querySelector('.quantity-custom');
+          let quantityCustom = itemCart.querySelector('.quantity-custom');
           let valueQuantityCustom = parseFloat(quantityCustom.innerHTML);
           quantityCustom.innerHTML = valueQuantityCustom + 1;
           let valueAddPriceArticle = parseFloat(addPriceArticle.innerHTML);
@@ -418,10 +418,10 @@ function addCart() {
         minus.addEventListener('click', removeWatch);
         
         function removeWatch(){
-          // let itemCart = minus.closest('.article');
-          let priceCustom = document.querySelector('.price-custom');
+          let itemCart = minus.closest('.article');
+          let priceCustom = itemCart.querySelector('.price-custom');
           let addPriceArticle = document.querySelector('.price-recap');
-          let quantityCustom = document.querySelector('.quantity-custom');
+          let quantityCustom = itemCart.querySelector('.quantity-custom');
           let valueQuantityCustom = parseFloat(quantityCustom.innerHTML);
 
           quantityCustom.innerHTML = valueQuantityCustom - 1;
@@ -429,7 +429,6 @@ function addCart() {
           let valuePriceCustom = parseFloat(priceCustom.innerHTML);
           addPriceArticle.innerHTML = valueAddPriceArticle - valuePriceCustom + "€";
 
-          let itemCart = document.querySelector('.article')
           if (valueQuantityCustom < 2){
             itemCart.remove();
           }
@@ -486,4 +485,31 @@ function hiddenContent() {
   btnOther2.classList.remove("show-product");
   btnOther1.classList.remove("hiddenContent");
   numberArticle.innerHTML = "11";
+}
+
+
+// ----------------------------------------------------------------------
+// Function qui remonte en haut de la page avec le btn scrolltop
+// --------------------------------------------------------------------
+
+let btnScrollTop = document.querySelector('.btn-scroll-top');
+btnScrollTop.addEventListener('click', goUp);
+
+function goUp(){
+  window.scrollTo({
+    top:0,
+    left:0,
+    behavior: "smooth"
+  })
+}
+
+window.addEventListener('scroll', appearsOnScroll);
+
+function appearsOnScroll(){
+  if(window.scrollY > 1000){
+    btnScrollTop.classList.remove('d-none');
+  }
+  else if (window.scrollY < 1000){
+    btnScrollTop.classList.add('d-none');
+  }
 }

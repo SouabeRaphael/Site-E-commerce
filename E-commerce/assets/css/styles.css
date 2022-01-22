@@ -1241,10 +1241,41 @@ body {
   display: none;
 }
 
+/* --------------------------------------- */
+/* button scroll top */
+/* --------------------------------------- */
+
+.btn-scroll-top{
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 50px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.btn-scroll-top .fa-chevron-up{
+  color: white;
+  font-size: 30px;
+}
+
+@media (max-width: 700px) {
+  .btn-scroll-top{
+    display: none;
+  }
+}
+
+
 
 /* ----------------------------------------------------------------- */
 /* Fin de la sections produits*/
 /* ------------------------------------------------------------------ */
+
 
 
 /* ---------------------------------------------------------------------- */
