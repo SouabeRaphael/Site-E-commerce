@@ -122,6 +122,64 @@
             "altImg": "Image montre 24H Antoine de chez Gustace & Cie"
         }
         
+    ],
+    "results2":[
+        {
+            "id": "item12",
+            "btn_label": "Meilleur vente",
+            "img_watch": "./assets/img/watch-1.png",
+            "title_product": "NEWPORT AUTOMATIC",
+            "price": "1,950.00",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"violet",
+            "reduct_None": "d-none",
+            "altImg": "Image montre Newport Automatic de chez Micehelle Herbelin"
+        },
+        {
+            "id": "item13",
+            "btn_label": "Nouveautés",
+            "img_watch": "./assets/img/watch-2.png",
+            "title_product": "BASTILLE-FREGATE",
+            "price": "195.00",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"orange",
+            "reduct_None": "d-none", 
+            "altImg": "Image montre Bastille-Fregate de chez Charlie-Paris"
+        },
+        {
+            "id": "item14",
+            "btn_label": "Nouveautés",
+            "img_watch": "./assets/img/watch-3.png",
+            "title_product": "NEWPORT AUTOMATIC",
+            "price": "990.00",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"orange",
+            "reduct_None": "d-none",
+            "altImg": "Image montre Newport Auromatic de chez Michelle Herbelin"
+        },
+        {
+            "id": "item15",
+            "btn_label": "Réduction",
+            "img_watch": "./assets/img/watch-4.png",
+            "title_product": "BASTILLE B4",
+            "price": "120.00",
+            "reduc_price": "195.00",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"vert",
+            "altImg": "Image montre Bastille B4 de chez Charlie-Paris"
+        },
+        {
+            "id": "item16",
+            "btn_label": "Réduction",
+            "img_watch": "./assets/img/watch-5.png",
+            "title_product": "NEWPORT AUTOMATIC",
+            "price": "990.00",
+            "btn_basket": "Mettre au panier",
+            "color_label" :"none",
+            "reduct_None": "d-none",
+            "altImg": "Image montre Newport Automatic de chez Michelle Herbelin"
+        }
+        
     ]
     
 }

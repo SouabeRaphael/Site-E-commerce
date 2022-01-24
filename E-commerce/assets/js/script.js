@@ -203,10 +203,10 @@ fetch("assets/data/product.json")
 // fonction fetch pour rempli d'autre produit dnas le html après avoir cliquer sur le button "Voit plus"
 // -------------------------------------------------------------------------------------------------------------
 
-fetch("assets/data/product_2.json")
+fetch("assets/data/product.json")
   .then((reponse) => reponse.json())
   .then((jsonProduct2) => {
-    jsonProduct2.results.map((product) => {
+    jsonProduct2.results2.map((product) => {
       let btnLabel = product.btn_label;
       let imgWatch = product.img_watch;
       let titleProduct = product.title_product;
@@ -240,6 +240,7 @@ fetch("assets/data/product_2.json")
                 </div>
             </div>`;
     });
+    addCart();
   });
 
 // fin fetch
@@ -395,6 +396,7 @@ function addCart() {
           let addPriceArticle = document.querySelector('.price-recap');
           let quantityCustom = itemCart.querySelector('.quantity-custom');
           let valueQuantityCustom = parseFloat(quantityCustom.innerHTML);
+
           quantityCustom.innerHTML = valueQuantityCustom + 1;
           let valueAddPriceArticle = parseFloat(addPriceArticle.innerHTML);
           let valuePriceCustom = parseFloat(priceCustom.innerHTML);
@@ -502,6 +504,10 @@ function goUp(){
     behavior: "smooth"
   })
 }
+
+// -------------------------------------------------------------------------
+// Function qui fait apparaitre le button à une certaines hauteur d'écran
+// -------------------------------------------------------------------------
 
 window.addEventListener('scroll', appearsOnScroll);
 
