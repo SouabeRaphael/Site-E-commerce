@@ -371,7 +371,7 @@ function addCart() {
         let priceDelivery = parseFloat(numberDelivery);
 
         if (converPriceAll > 500) {
-          delivery.innerHTML = `6,99€`
+          delivery.innerHTML = `6,99€`;
           priceTotalRecap.innerHTML = converPriceAll + priceDelivery + "€";
         } else if (converPriceAll < 500) {
           priceTotalRecap.innerHTML = converPriceAll + "€";
